@@ -1,0 +1,27 @@
+<h2>Componente show</h2>
+
+<div class="d-grip gap-2 mt-4">
+  <a routerLink="/create" class="btn btn-primary mb-3" type="button">Create</a>
+</div>
+
+<table class="table table-hover table-striped">
+  <thead class="bg-dark text-white">
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Author</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of Posts">
+      <td>{{ post.title }}</td> 
+      <td>{{ post.content }}</td>
+      <td>{{ post.author }}</td>
+      <td>
+          <button routerLink="/edit/{{post.id}}" class="btn btn-outline-secondary"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button (click)="deleteRow(post)" class="btn btn-outline-danger"><i class="fa-solid fa-square-minus"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
